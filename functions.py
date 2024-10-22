@@ -42,7 +42,6 @@ def dataset_info(dataset):
     
     print("\nColumnas del dataset:")
     print(dataset.columns)
-
     
 # Diccionario de traducciones
 translations = {
