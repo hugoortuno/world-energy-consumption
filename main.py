@@ -1,5 +1,4 @@
-
-from functions import generate_random_data, create_dataframe, load_dataset, visualize_data
+from functions import generate_random_data, create_dataframe, load_dataset, visualize_data, rename_columns
 
 def main():
     """Función principal del programa."""
@@ -8,7 +7,10 @@ def main():
     dataset = load_dataset(filepath)
     
     if dataset is not None:
-        # Aquí puedes realizar otras operaciones con el dataset
+        # Renombrar las columnas al español
+        rename_columns(dataset)
+
+        # Mostrar las primeras filas del dataset con columnas renombradas
         print(dataset.head())  # Muestra las primeras filas del dataset
 
         # Generar datos aleatorios (puedes eliminar esto si no lo necesitas)
