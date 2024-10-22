@@ -1,6 +1,6 @@
 import os
 import pandas as pd
-from functions import generate_random_data, create_dataframe, load_dataset, visualize_data, rename_columns
+from functions import generate_random_data, create_dataframe, load_dataset, rename_columns
 
 def main():
     """Función principal del programa."""
@@ -28,9 +28,6 @@ def main():
             # Crear un DataFrame de ejemplo (elimina esto si no lo necesitas)
             random_data = generate_random_data(size=10)
             df = create_dataframe(random_data)
-
-            # Visualizar los datos
-            visualize_data(df)
 
             # Guardar el DataFrame limpio en un archivo CSV
             output_folder = r"D:\Documents\GitHub\world-energy-consumption\cleaned"  # Ruta de la carpeta

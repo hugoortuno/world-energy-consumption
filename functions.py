@@ -43,10 +43,233 @@ def dataset_info(dataset):
     print("\nColumnas del dataset:")
     print(dataset.columns)
 
+    
+# Diccionario de traducciones
+translations = {
+    'Afghanistan': 'Afganistán',
+    'Albania': 'Albania',
+    'Algeria': 'Argelia',
+    'Andorra': 'Andorra',
+    'Angola': 'Angola',
+    'Antigua and Barbuda': 'Antigua y Barbuda',
+    'Argentina': 'Argentina',
+    'Armenia': 'Armenia',
+    'Australia': 'Australia',
+    'Austria': 'Austria',
+    'Azerbaijan': 'Azerbaiyán',
+    'Bahamas': 'Las Bahamas',
+    'Bahrain': 'Baréin',
+    'Bangladesh': 'Bangladés',
+    'Barbados': 'Barbados',
+    'Belarus': 'Bielorrusia',
+    'Belgium': 'Bélgica',
+    'Belize': 'Belice',
+    'Benin': 'Benín',
+    'Bhutan': 'Bután',
+    'Bolivia': 'Bolivia',
+    'Bosnia and Herzegovina': 'Bosnia y Herzegovina',
+    'Botswana': 'Botsuana',
+    'Brazil': 'Brasil',
+    'Brunei': 'Brunéi',
+    'Bulgaria': 'Bulgaria',
+    'Burkina Faso': 'Burkina Faso',
+    'Burundi': 'Burundi',
+    'Cabo Verde': 'Cabo Verde',
+    'Cambodia': 'Camboya',
+    'Cameroon': 'Camerún',
+    'Canada': 'Canadá',
+    'Central African Republic': 'República Centroafricana',
+    'Chad': 'Chad',
+    'Chile': 'Chile',
+    'China': 'China',
+    'Colombia': 'Colombia',
+    'Comoros': 'Comoras',
+    'Congo': 'Congo',
+    'Costa Rica': 'Costa Rica',
+    'Croatia': 'Croacia',
+    'Cuba': 'Cuba',
+    'Cyprus': 'Chipre',
+    'Czechia': 'República Checa',
+    'Democratic Republic of the Congo': 'República Democrática del Congo',
+    'Denmark': 'Dinamarca',
+    'Dominica': 'Dominica',
+    'Dominican Republic': 'República Dominicana',
+    'Ecuador': 'Ecuador',
+    'Egypt': 'Egipto',
+    'El Salvador': 'El Salvador',
+    'Equatorial Guinea': 'Guinea Ecuatorial',
+    'Eritrea': 'Eritrea',
+    'Estonia': 'Estonia',
+    'Eswatini': 'Suazilandia',
+    'Ethiopia': 'Etiopía',
+    'Fiji': 'Fiyi',
+    'Finland': 'Finlandia',
+    'France': 'Francia',
+    'Gabon': 'Gabón',
+    'Georgia': 'Georgia',
+    'Germany': 'Alemania',
+    'Ghana': 'Ghana',
+    'Greece': 'Grecia',
+    'Grenada': 'Granada',
+    'Guatemala': 'Guatemala',
+    'Guinea': 'Guinea',
+    'Guinea-Bissau': 'Guinea-Bisáu',
+    'Guyana': 'Guyana',
+    'Haiti': 'Haití',
+    'Honduras': 'Honduras',
+    'Hungary': 'Hungría',
+    'Iceland': 'Islandia',
+    'India': 'India',
+    'Indonesia': 'Indonesia',
+    'Iran': 'Irán',
+    'Iraq': 'Irak',
+    'Ireland': 'Irlanda',
+    'Israel': 'Israel',
+    'Italy': 'Italia',
+    'Jamaica': 'Jamaica',
+    'Japan': 'Japón',
+    'Jordan': 'Jordania',
+    'Kazakhstan': 'Kazajistán',
+    'Kenya': 'Kenia',
+    'Kiribati': 'Kiribati',
+    'Kuwait': 'Kuwait',
+    'Kyrgyzstan': 'Kirguistán',
+    'Laos': 'Laos',
+    'Latvia': 'Letonia',
+    'Lebanon': 'Líbano',
+    'Lesotho': 'Lesoto',
+    'Liberia': 'Liberia',
+    'Libya': 'Libia',
+    'Liechtenstein': 'Liechtenstein',
+    'Lithuania': 'Lituania',
+    'Luxembourg': 'Luxemburgo',
+    'Madagascar': 'Madagascar',
+    'Malawi': 'Malawi',
+    'Malaysia': 'Malasia',
+    'Maldives': 'Maldivas',
+    'Mali': 'Mali',
+    'Malta': 'Malta',
+    'Marshall Islands': 'Islas Marshall',
+    'Mauritania': 'Mauritania',
+    'Mauritius': 'Mauricio',
+    'Mexico': 'México',
+    'Micronesia': 'Micronesia',
+    'Moldova': 'Moldavia',
+    'Monaco': 'Mónaco',
+    'Mongolia': 'Mongolia',
+    'Montenegro': 'Montenegro',
+    'Morocco': 'Marruecos',
+    'Mozambique': 'Mozambique',
+    'Myanmar': 'Myanmar',
+    'Namibia': 'Namibia',
+    'Nauru': 'Nauru',
+    'Nepal': 'Nepal',
+    'Netherlands': 'Países Bajos',
+    'New Zealand': 'Nueva Zelanda',
+    'Nicaragua': 'Nicaragua',
+    'Niger': 'Níger',
+    'Nigeria': 'Nigeria',
+    'North America': 'América del Norte',
+    'North Korea': 'Corea del Norte',
+    'North Macedonia': 'Macedonia del Norte',
+    'Norway': 'Noruega',
+    'Oceania': 'Oceanía',
+    'Pakistan': 'Pakistán',
+    'Palau': 'Palaos',
+    'Palestine': 'Palestina',
+    'Panama': 'Panamá',
+    'Papua New Guinea': 'Papúa Nueva Guinea',
+    'Paraguay': 'Paraguay',
+    'Peru': 'Perú',
+    'Philippines': 'Filipinas',
+    'Poland': 'Polonia',
+    'Portugal': 'Portugal',
+    'Qatar': 'Catar',
+    'Romania': 'Rumania',
+    'Russia': 'Rusia',
+    'Rwanda': 'Ruanda',
+    'Saint Barthélemy': 'San Bartolomé',
+    'Saint Helena': 'Santa Elena',
+    'Saint Kitts and Nevis': 'San Cristóbal y Nieves',
+    'Saint Lucia': 'Santa Lucía',
+    'Saint Martin': 'San Martín',
+    'Saint Pierre and Miquelon': 'San Pedro y Miquelón',
+    'Saint Vincent and the Grenadines': 'San Vicente y las Granadinas',
+    'Samoa': 'Samoa',
+    'San Marino': 'San Marino',
+    'Sao Tome and Principe': 'Santo Tomé y Príncipe',
+    'Saudi Arabia': 'Arabia Saudita',
+    'Senegal': 'Senegal',
+    'Serbia': 'Serbia',
+    'Seychelles': 'Seychelles',
+    'Sierra Leone': 'Sierra Leona',
+    'Singapore': 'Singapur',
+    'Slovakia': 'Eslovaquia',
+    'Slovenia': 'Eslovenia',
+    'Solomon Islands': 'Islas Salomón',
+    'Somalia': 'Somalia',
+    'South Africa': 'Sudáfrica',
+    'South America (EI)': 'América del Sur (EI)',
+    'South Korea': 'Corea del Sur',
+    'South Sudan': 'Sudán del Sur',
+    'Spain': 'España',
+    'Sri Lanka': 'Sri Lanka',
+    'Sudan': 'Sudán',
+    'Suriname': 'Surinam',
+    'Sweden': 'Suecia',
+    'Switzerland': 'Suiza',
+    'Taiwan': 'Taiwán',
+    'Tajikistan': 'Tayikistán',
+    'Tanzania': 'Tanzania',
+    'Thailand': 'Tailandia',
+    'Timor-Leste': 'Timor-Leste',
+    'Togo': 'Togo',
+    'Tonga': 'Tonga',
+    'Trinidad and Tobago': 'Trinidad y Tobago',
+    'Tunisia': 'Túnez',
+    'Turkey': 'Turquía',
+    'Turkmenistan': 'Turkmenistán',
+    'Tuvalu': 'Tuvalu',
+    'Uganda': 'Uganda',
+    'Ukraine': 'Ucrania',
+    'United Arab Emirates': 'Emiratos Árabes Unidos',
+    'United Kingdom': 'Reino Unido',
+    'United States': 'Estados Unidos',
+    'Uruguay': 'Uruguay',
+    'Uzbekistan': 'Uzbekistán',
+    'Vanuatu': 'Vanuatu',
+    'Vatican City': 'Ciudad del Vaticano',
+    'Venezuela': 'Venezuela',
+    'Vietnam': 'Vietnam',
+    'Yemen': 'Yemen',
+    'Zambia': 'Zambia',
+    'Zimbabwe': 'Zimbabue'
+}
+
+# Cargar el archivo CSV
+file_path = 'data/owid-energy-data.csv'
+data = load_dataset(file_path)
+
+if data is not None:
+    # Verificar nombres de columnas
+    print(data.columns)
+    
+    # Reemplazar los nombres de los países
+    if 'country' in data.columns:
+        data['country'] = data['country'].replace(translations)
+    else:
+        print("La columna 'country' no se encuentra en el dataset.")
+
+    # Verificar los valores únicos después del reemplazo
+    print(data['country'].unique())
+
+    # Mostrar información básica del dataset
+    dataset_info(data)
+
 def rename_columns(dataset):  # Cambia 'df' a 'dataset'
     """Renombra las columnas del dataset al español."""
     column_names = {
-        'country': 'Paí',
+        'country': 'País',
         'year': 'Año',
         'iso_code': 'Código ISO',
         'population': 'Población',
@@ -173,20 +396,64 @@ def rename_columns(dataset):  # Cambia 'df' a 'dataset'
         'wind_electricity': 'Electricidad generada a partir de energía eólica',
         'wind_energy_per_capita': 'Cantidad de energía eólica disponible o generada por persona',
         'wind_share_elec': 'Proporción de energía eólica en la producción total de electricidad',
-        'wind_share_energy': 'Participación de energía eólica en el consumo total de energía'
+        'wind_share_energy': 'Participación de energía eólica en el consumo total de energía',
+        'yearly_renewable_energy': 'Año de la energía renovable',
+        'yearly_biofuel': 'Año del biocombustible',
+        'yearly_coal': 'Año del carbón',
+        'yearly_fossil': 'Año de fósiles',
+        'yearly_gas': 'Año del gas',
+        'yearly_hydro': 'Año de hidroeléctrico',
+        'yearly_nuclear': 'Año de energía nuclear',
+        'yearly_oil': 'Año del petróleo',
+        'yearly_solar': 'Año de energía solar',
+        'yearly_wind': 'Año de energía eólica',
+        'total_consumption': 'Consumo total'
     }
 
     dataset.rename(columns=column_names, inplace=True)
     print("Columnas renombradas exitosamente.")
     return dataset  # Asegúrate de retornar el DataFrame
 
-def visualize_data(df):
-    """Visualiza los datos en un gráfico de línea."""
-    plt.figure(figsize=(8, 4))
-    sns.lineplot(data=df, x=df.index, y='Valores')
-    plt.title('Gráfico de Línea de Valores Aleatorios')
-    plt.xlabel('Índice')
-    plt.ylabel('Valores')
-    plt.grid()
+def filter_dataframe(dataset, column_name, value):
+    """Filtra el DataFrame por un valor específico en una columna."""
+    if column_name in dataset.columns:
+        filtered_df = dataset[dataset[column_name] == value]
+        print(f"\nSe han encontrado {filtered_df.shape[0]} filas donde {column_name} es igual a {value}.")
+        return filtered_df
+    else:
+        print(f"Error: La columna '{column_name}' no existe en el DataFrame.")
+        return dataset  # Retorna el DataFrame sin filtrar si la columna no existe.
+
+def plot_data(dataset):
+    """Genera un gráfico de barras a partir del DataFrame."""
+    plt.figure(figsize=(10, 6))
+    sns.barplot(data=dataset, x='Año', y='Consumo total de biocombustibles', palette='viridis')
+    plt.title('Consumo total de biocombustibles por año')
+    plt.xlabel('Año')
+    plt.ylabel('Consumo total de biocombustibles')
+    plt.xticks(rotation=45)
+    plt.tight_layout()
     plt.show()
+
+def main():
+    # Ejemplo de uso
+    data = generate_random_data()
+    df = create_dataframe(data)
+    print(df)
     
+    # Cargar un dataset desde un archivo
+    dataset = load_dataset('data/owid-energy-data.csv')
+    
+    if dataset is not None:
+        dataset_info(dataset)
+        rename_columns(dataset)
+        
+        # Filtrar el DataFrame por un valor específico
+        filtered_df = filter_dataframe(dataset, 'Año', 2020)
+        print(filtered_df)
+        
+        # Graficar los datos
+        plot_data(filtered_df)
+
+if __name__ == "__main__":
+    main()
