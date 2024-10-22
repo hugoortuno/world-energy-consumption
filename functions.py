@@ -43,13 +43,13 @@ def dataset_info(dataset):
     print("\nColumnas del dataset:")
     print(dataset.columns)
 
-def rename_columns(dataset):
+def rename_columns(dataset):  # Cambia 'df' a 'dataset'
     """Renombra las columnas del dataset al español."""
-    column_mapping = {
-        'country': 'Pais',
+    column_names = {
+        'country': 'Paí',
         'year': 'Año',
         'iso_code': 'Código ISO',
-        'population': 'Poblacion',
+        'population': 'Población',
         'gdp': 'PIB',
         'biofuel_cons_change_pct': 'Cambio porcentual en el consumo de biocombustibles',
         'biofuel_cons_change_twh': 'Consumo de biocombustibles medido en teravatios-hora (TWh)',
@@ -174,10 +174,11 @@ def rename_columns(dataset):
         'wind_energy_per_capita': 'Cantidad de energía eólica disponible o generada por persona',
         'wind_share_elec': 'Proporción de energía eólica en la producción total de electricidad',
         'wind_share_energy': 'Participación de energía eólica en el consumo total de energía'
-       }
-    dataset.rename(columns=column_mapping, inplace=True)
-    print("\nColumnas renombradas exitosamente.")
-    print(dataset.columns)
+    }
+
+    dataset.rename(columns=column_names, inplace=True)
+    print("Columnas renombradas exitosamente.")
+    return dataset  # Asegúrate de retornar el DataFrame
 
 def visualize_data(df):
     """Visualiza los datos en un gráfico de línea."""
