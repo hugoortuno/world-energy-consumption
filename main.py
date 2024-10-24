@@ -70,7 +70,7 @@ def main():
     # Cerrar la base de datos
     energy_engine.dispose()
 
-    print("Done!")
+    print("¡Bien hecho, lo conseguimos!")
 
 
 if __name__ == "__main__":
