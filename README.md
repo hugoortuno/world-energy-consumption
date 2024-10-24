@@ -116,5 +116,5 @@ El análisis de datos reveló las siguientes tendencias clave:
 
 Hugo Ortuño Suárez
 
-* **LinkedIn:** [https://www.linkedin.com/in/hugo-ortu%C3%B1o-suarez/](https://www.linkedin.com/in/hugo-ortu%C3%B1o-suarez/)
-* **GitHub:** [https://github.com/hugoortuno](https://github.com/hugoortuno)
+* [LinkedIn](https://www.linkedin.com/in/hugo-ortu%C3%B1o-suarez/)
+* [GitHub](https://github.com/hugoortuno)
