@@ -93,9 +93,12 @@ Para el análisis cuantitativo, se utilizarán las siguientes métricas:
     *  Crear una presentación en Canva para comunicar los resultados del análisis.
     *  Resaltar las conclusiones clave y las ideas principales.
 
-**Presentación:**
+## Análisis Exploratorio de Datos
 
-* [Presentación en Canva](https://www.canva.com/design/DAGUeVIQCE8/MxvAJObkmjYpYdt7s3lL_g/edit?utm_content=DAGUeVIQCE8&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
+Se realizaron histogramas para visualizar la distribución de las variables del dataset:
+
+![Histograma del consumo de energía por año](D:\Documents\GitHub\world-energy-consumption\views\Figure_1.png)
+![Electricidad de energías renovables por año](D:\Documents\GitHub\world-energy-consumption\views\Figure_2.png)
 
 **Resultados esperados:**
 
@@ -111,6 +114,16 @@ El análisis de datos reveló las siguientes tendencias clave:
 * **Impacto del consumo de combustibles fósiles en las emisiones de CO2:** Se observó una relación significativa entre el consumo de combustibles fósiles y las emisiones de CO2. Los países con mayor consumo de combustibles fósiles presentan mayores emisiones de CO2, lo que destaca la importancia de la transición hacia fuentes de energía más limpias. (Insertar gráfico de barras)
 * **Crecimiento de las energías renovables:** Se observó un aumento en la generación de electricidad a partir de fuentes renovables en los últimos años, especialmente en países con mayor PIB per cápita. Esto sugiere que la inversión en energías renovables está aumentando, aunque aún queda mucho por hacer para alcanzar una combinación energética sostenible. (Insertar gráfico de líneas)
 * **Disparidades regionales en el consumo de energía:** Se encontraron diferencias significativas en el consumo de energía per cápita entre las diferentes regiones del mundo.  Norteamérica presenta el mayor consumo per cápita, mientras que África Subsahariana tiene el menor. Estas disparidades reflejan las desigualdades en el acceso a la energía y el desarrollo económico. (Insertar mapa coroplético)
+
+**Presentación:**
+
+* [Presentación en Canva](https://www.canva.com/design/DAGUeVIQCE8/MxvAJObkmjYpYdt7s3lL_g/edit?utm_content=DAGUeVIQCE8&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
+
+**Dashboard:**
+
+Puedes acceder al dashboard interactivo en Power BI a través del siguiente enlace:
+
+[Dashboard en Power BI](https://app.powerbi.com/links/kifHRQoNmc?ctid=2b079dc7-e2ea-45bc-9182-0fde14b549b1&pbi_source=linkShare)
 
 **Autor:** 
 
