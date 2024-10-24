@@ -93,6 +93,13 @@ Para el análisis cuantitativo, se utilizarán las siguientes métricas:
     *  Crear una presentación en Canva para comunicar los resultados del análisis.
     *  Resaltar las conclusiones clave y las ideas principales.
 
+## Análisis Exploratorio de Datos
+
+Se realizaron histogramas para visualizar la distribución de las variables del dataset:
+
+![Histograma del consumo mundial de energía por año](views/Figure_1.png)
+![Electricidad de energías renovables por año](views/Figure_2.png)
+
 **Resultados esperados:**
 
 * Un dashboard interactivo que permita visualizar y analizar el consumo energético mundial.
