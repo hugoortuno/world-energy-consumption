@@ -1,46 +1,77 @@
-import os
-import pandas as pd
-from functions import generate_random_data, create_dataframe, load_dataset, rename_columns
+from functions import read_raw_energy_data, read_raw_energy_codebook, read_raw_country_info, read_config, drop_aggregated_data, keep_and_rename_columns, interpolate_missing_data, datatype_conversion, dataset_info, filter_dataframe, plot_data
+from database import connect_to_db, df_to_mysql_table, select_data_for_powerbi
+
 
 def main():
     """Función principal del programa."""
-    # Cargar el dataset
-    filepath = r"D:\Documents\GitHub\world-energy-consumption\data\owid-energy-data.csv"
-    dataset = load_dataset(filepath)
+    # Conectar a la base de datos
+    energy_engine = connect_to_db('energy')
+    print("Conectado a la base de datos.")
 
-    if dataset is not None:
-        print("Dataset cargado exitosamente:")
-        print(dataset.head())  # Muestra las primeras filas del dataset
+    # Cargar los datos y guardar una copia de los datos en bruto en la base de datos
+    energy_df = read_raw_energy_data()
+    df_to_mysql_table(energy_df, 'energy_data_raw', energy_engine)
+    codebook_df = read_raw_energy_codebook()
+    df_to_mysql_table(codebook_df, 'codebook_raw', energy_engine)
+    country_info_df = read_raw_country_info()
+    df_to_mysql_table(country_info_df, 'country_info_raw', energy_engine)
 
-        # Mostrar columnas originales
-        print("Columnas originales del dataset:")
-        print(dataset.columns)
+    # Quitar datos agregados
+    energy_df_cleaned = drop_aggregated_data(energy_df, ['iso_code', 'country', 'year'])
 
-        # Renombrar las columnas al español
-        dataset = rename_columns(dataset)
+    # Reemplazar nombres de columnas y quitar las no necesarias
+    config_df = read_config()
+    energy_df_cleaned = keep_and_rename_columns(energy_df_cleaned, config_df)
 
-        if dataset is not None:  # Verifica que el DataFrame no sea None
-            print("Primeras filas del dataset después de renombrar columnas:")
-            print(dataset.head())  # Muestra las primeras filas del dataset
-            print("Columnas después del renombrado:")
-            print(dataset.columns)
+    # Interpolación de datos faltantes
+    energy_df_cleaned.sort_values(by=['País', 'Año'], inplace=True)
+    energy_df_cleaned = interpolate_missing_data(energy_df_cleaned, 'País', 'PIB (Producto Interno Bruto)')
 
-            # Crear un DataFrame de ejemplo (elimina esto si no lo necesitas)
-            random_data = generate_random_data(size=10)
-            df = create_dataframe(random_data)
+    # Cambio de tipo de datos
+    energy_df_cleaned = datatype_conversion(energy_df_cleaned)
+    print('Datos limpidas y procesadas con éxito.')
 
-            # Guardar el DataFrame limpio en un archivo CSV
-            output_folder = r"D:\Documents\GitHub\world-energy-consumption\cleaned"  # Ruta de la carpeta
-            output_file = os.path.join(output_folder, "energy_data_cleaned.csv")  # Nombre del archivo
+    # Guardar los datos procesados en la base de datos
+    df_to_mysql_table(energy_df_cleaned, 'energy_data', energy_engine)
 
-            # Crear la carpeta si no existe
-            os.makedirs(output_folder, exist_ok=True)
+    # Información del dataset
+    dataset_info(energy_df_cleaned)
 
-            # Guardar el DataFrame como CSV
-            dataset.to_csv(output_file, index=False, encoding='utf-8')
-            print(f"El dataset limpio se ha guardado en: {output_file}")
-        else:
-            print("Error: El DataFrame después de renombrar columnas es None.")
+    # Vizualización de los datos con Python
+    plot_data(energy_df_cleaned)
+
+    # selección de datos para PowerBI de la base de datos
+    # consulta SQL
+    query = """
+    SELECT *
+    FROM `energy`.`energy_data` AS e
+    JOIN (
+        SELECT Region AS `Región`, LifeExpectancy AS `Expectativa de vida`, Code
+        FROM world.country
+    ) AS w ON e.`Código ISO` = w.`Code`
+    JOIN (
+        SELECT name_es AS `País ES`, continent_es AS Continente, km2 AS `Superficie, km2`, code_3 
+        FROM energy.country_info_raw
+    ) AS c ON e.`Código ISO` = c.code_3;
+    """
+    # executar la consulta
+    df = select_data_for_powerbi(energy_engine, query)
+
+    if df.empty:
+        print("La consulta no resultó exitosa")
+    else:
+        print('Datos seleccionadas para PowerBI con éxito.')
+        
+    # exportar los datos a un archivo Excel
+    excel_filename = './cleaned/energy_data.xlsx'
+    df.to_excel(excel_filename, index=False)
+    print(f"Data saved to {excel_filename}")
+
+    # Cerrar la base de datos
+    energy_engine.dispose()
+
+    print("Done!")
+
 
 if __name__ == "__main__":
     main()
