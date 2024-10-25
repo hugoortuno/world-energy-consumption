@@ -36,31 +36,6 @@ Este proyecto se centra en proporcionar información clave sobre el consumo ener
 4. **Existe una diferencia significativa en el consumo de energía per cápita entre las diferentes regiones del mundo.**  Se espera que regiones como Norteamérica tengan un consumo per cápita mayor que regiones como África Subsahariana.
 5. **Ha habido un aumento en la generación de electricidad a partir de fuentes renovables en los últimos años.**  Se espera observar una tendencia creciente en la producción de energía solar, eólica e hidroeléctrica a lo largo del tiempo.
 
-**Métricas:**
-
-Para el análisis cuantitativo, se utilizarán las siguientes métricas:
-
-1.  **Consumo de energía primaria per cápita:** Indica la cantidad de energía primaria consumida por persona en un país.
-2.  **Emisiones de CO2 per cápita:** Mide las emisiones de dióxido de carbono por persona en un país.
-3.  **Proporción de energía renovable en la combinación energética:** Representa el porcentaje de energía renovable en el consumo total de energía de un país.
-4.  **Intensidad energética:** Mide la cantidad de energía consumida por unidad de PIB.
-5.  **Eficiencia energética:** Indica la cantidad de PIB producida por unidad de energía consumida.
-6.  **Consumo de energía por sector (industrial, residencial, comercial, transporte):** Permite analizar el consumo energético en diferentes sectores de la economía.
-7.  **Crecimiento del consumo de energía:** Mide la tasa de crecimiento anual del consumo de energía.
-8.  **Índice de desarrollo humano (IDH):** Un indicador compuesto que mide el desarrollo humano de un país, que puede ser comparado con el consumo de energía.
-9.  **PIB per cápita:** Indica el valor del PIB dividido por la población de un país.
-10. **Tasa de electrificación:** Representa el porcentaje de la población con acceso a la electricidad.
-11. **Consumo de electricidad per cápita:** Mide la cantidad de electricidad consumida por persona.
-12. **Producción de electricidad por fuente de energía:** Permite analizar la contribución de cada fuente de energía a la generación de electricidad.
-13. **Costo de la electricidad:** Indica el precio promedio de la electricidad para los consumidores.
-14. **Emisiones de CO2 por unidad de energía producida:** Mide la cantidad de CO2 emitida por unidad de energía generada.
-15. **Inversión en energías renovables:** Representa la cantidad de dinero invertido en el desarrollo de energías renovables.
-16. **Número de empleos en el sector de las energías renovables:** Indica la cantidad de personas empleadas en el sector de las energías renovables.
-17. **Superficie de tierra dedicada a la producción de energía renovable:** Mide la cantidad de tierra utilizada para la generación de energía renovable.
-18. **Potencial de energía renovable:** Estima la cantidad de energía renovable que se puede generar en un país.
-19. **Dependencia de la importación de energía:** Mide la proporción de energía que un país importa del extranjero.
-20. **Seguridad energética:** Evalúa la capacidad de un país para satisfacer sus necesidades energéticas de forma confiable y sostenible.
-
 **Objetivos:**
 
 * **Analizar:**
